@@ -11,5 +11,5 @@ pipelines:
             - pip install boto3==1.3.0 # required for lambda_deploy.py
             # package up the function for deployment
             # Be sure to change the arguments to your function files
-            - mvn clean packagec
+            - mvn clean package
             - python lambda_deploy.py # run the deployment script
