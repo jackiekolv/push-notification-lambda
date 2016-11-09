@@ -32,7 +32,7 @@ def publish_new_version(artifact):
     try:
         response = client.update_function_code(
             FunctionName=os.getenv('AWS_LAMBDA_FUNCTION_NAME'),
-            ZipFile=open('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar', 'r').read(),
+            ZipFile=open('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar', 'rb').read(),
             Publish=True
         )
         print(artifact)
@@ -48,8 +48,7 @@ def publish_new_version(artifact):
 
 def main():
     " Your favorite wrapper's favorite wrapper "
-    #if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar'):
-    if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/file.zip'):
+    if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar'):
         sys.exit(1)
 
 if __name__ == "__main__":
