@@ -1,4 +1,5 @@
-image: python:3.5.1
+#image: python:3.5.1
+image: maven:3.3.3
 
 pipelines:
   branches:
