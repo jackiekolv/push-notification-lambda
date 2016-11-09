@@ -1,0 +1,12 @@
+{
+  "to": "/topics/news",
+  "notification": {
+  	"title": "เธอๆ เรามีอะไรจะบอก",
+  	"text": "เติมเงินมือถือหน่อยไหม เติมกับเราได้นะ",
+  	"sound": "default",
+  	"badge": "1",
+  	"click_action": "OPEN_ACTIVITY_1"
+  },
+  "data": {
+   }
+}
