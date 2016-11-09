@@ -64,8 +64,8 @@ public class SNSMobilePush {
 
 	public void demoAppleAppNotification(String textMessage) {
 		String deviceToken = "d6bf9ba0cb43588f5a2beae1ea912a930f30fa8a4e53331eb9ec7f48deb6e9ef"; // This is 64 hex characters.
-		//String platformApplicationArn = "arn:aws:sns:ap-southeast-1:304788419564:app/APNS/wallet_ios";
-		String platformApplicationArn = "arn:aws:sns:ap-southeast-1:872767853649:app/APNS/nokia3310";
+		String platformApplicationArn = "arn:aws:sns:ap-southeast-1:304788419564:app/APNS/wallet_ios";
+		//String platformApplicationArn = "arn:aws:sns:ap-southeast-1:872767853649:app/APNS/nokia3310";
 
 		snsClientWrapper.demoNotification(Platform.APNS, deviceToken, platformApplicationArn, textMessage);
 	}

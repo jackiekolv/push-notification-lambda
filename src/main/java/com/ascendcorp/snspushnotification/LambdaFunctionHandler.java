@@ -10,7 +10,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
 
-public class LambdaFunctionHandler implements RequestHandler<RequestObject, Object> {
+public class LambdaFunctionHandler implements RequestHandler<RequestObject, String> {
 
 //    @Override
     public String handleRequest(RequestObject input, Context context) {
