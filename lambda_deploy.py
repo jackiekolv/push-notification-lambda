@@ -30,7 +30,7 @@ def publish_new_version(artifact):
 
     try:
         response = client.update_function_code(
-            FunctionName='test_lambda',
+            FunctionName='pushNotification',
             ZipFile=open(artifact, 'rb').read(),
             Publish=True
         )
@@ -44,7 +44,7 @@ def publish_new_version(artifact):
 
 def main():
     " Your favorite wrapper's favorite wrapper "
-    if not publish_new_version('/tmp/artifact.zip'):
+    if not publish_new_version('target/push-notification-lambda.jar'):
         sys.exit(1)
 
 if __name__ == "__main__":
