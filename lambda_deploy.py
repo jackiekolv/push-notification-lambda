@@ -14,7 +14,6 @@ joshcb@amazon.com
 v1.0.0
 """
 from __future__ import print_function
-import os
 import sys
 import boto3
 from botocore.exceptions import ClientError
@@ -35,8 +34,6 @@ def publish_new_version(artifact):
             JarFile=open(artifact, 'rb').read(),
             Publish=True
         )
-        print("Successfully updated function code.\n")
-        print (repr(response))
         return response
     except ClientError as err:
         print("Failed to update function code.\n" + str(err))
