@@ -13,7 +13,7 @@ import com.amazonaws.services.sns.AmazonSNSClient;
 public class LambdaFunctionHandler implements RequestHandler<RequestObject, Object> {
 
 //    @Override
-    public Object handleRequest(RequestObject input, Context context) {
+    public String handleRequest(RequestObject input, Context context) {
     	if(context != null)
     		context.getLogger().log("Input: " + input);
 
@@ -50,7 +50,7 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Obje
 		}
         
         // TODO: implement your handler
-        return null;
+        return "Yooo this is return.";
     }
     
     public static void main(String[] args) {
