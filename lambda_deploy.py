@@ -44,7 +44,7 @@ def publish_new_version(artifact):
 
 def main():
     " Your favorite wrapper's favorite wrapper "
-    if not publish_new_version('target/push-notification-lambda.jar'):
+    if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar'):
         sys.exit(1)
 
 if __name__ == "__main__":
