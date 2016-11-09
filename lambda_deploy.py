@@ -30,7 +30,7 @@ def publish_new_version(artifact):
 
     try:
         response = client.update_function_code(
-            FunctionName='pushNotification',
+            FunctionName='SNSPushNotification',
             ZipFile=open(artifact, 'rb').read(),
             Publish=True
         )
