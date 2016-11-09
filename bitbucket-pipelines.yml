@@ -13,6 +13,5 @@ pipelines:
             # Be sure to change the arguments to your function files
             - mvn clean package
             - zip /opt/atlassian/pipelines/agent/build/target/file.zip /opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar
-            #- ls -l
             - ls -l /opt/atlassian/pipelines/agent/build/target/
             - python lambda_deploy.py # run the deployment script
