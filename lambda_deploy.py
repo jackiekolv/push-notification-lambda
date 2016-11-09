@@ -32,7 +32,7 @@ def publish_new_version(artifact):
     try:
         response = client.update_function_code(
             FunctionName=os.getenv('AWS_LAMBDA_FUNCTION_NAME'),
-            JarFile=open('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar', 'rb').read(),
+            ZipFile=open('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar', 'rb').read(),
             Publish=True
         )
         print(artifact)
