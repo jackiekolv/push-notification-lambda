@@ -14,6 +14,7 @@ joshcb@amazon.com
 v1.0.0
 """
 from __future__ import print_function
+import os
 import sys
 import boto3
 from botocore.exceptions import ClientError
@@ -30,10 +31,12 @@ def publish_new_version(artifact):
 
     try:
         response = client.update_function_code(
-            FunctionName='SNSPushNotificationXXXX',
-            ZipFile=open(artifact, 'rb').read(),
+            FunctionName=os.getenv('AWS_LAMBDA_FUNCTION_NAME'),
+            JarFile=open(artifact, 'rb').read(),
             Publish=True
         )
+        print("Successfully updated function code.\n")
+        print (repr(response))
         return response
     except ClientError as err:
         print("Failed to update function code.\n" + str(err))
@@ -44,7 +47,7 @@ def publish_new_version(artifact):
 
 def main():
     " Your favorite wrapper's favorite wrapper "
-    if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/push-notification-lambdaXXX.jar'):
+    if not publish_new_version('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar'):
         sys.exit(1)
 
 if __name__ == "__main__":
