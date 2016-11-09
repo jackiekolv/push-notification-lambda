@@ -35,6 +35,7 @@ def publish_new_version(artifact):
             ZipFile=open('/opt/atlassian/pipelines/agent/build/target/push-notification-lambda.jar', 'rb').read(),
             Publish=True
         )
+        print(artifact)
         print("Successfully updated function code.\n")
         print (repr(response))
         return response
