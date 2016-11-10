@@ -19,7 +19,11 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Stri
 
 		AmazonSNS sns = null;
 		try {
-			sns = new AmazonSNSClient(new PropertiesCredentials(SNSMobilePush.class.getResourceAsStream("AwsCredentials.properties")));
+			sns = new AmazonSNSClient(
+					new PropertiesCredentials(
+					SNSMobilePush
+					.class
+					.getResourceAsStream("AwsCredentials.properties")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
