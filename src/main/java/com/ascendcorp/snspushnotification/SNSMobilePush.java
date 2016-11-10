@@ -6,6 +6,7 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sns.model.PublishResult;
 import com.ascendcorp.snspushnotification.tools.AmazonSNSClientWrapper;
 import com.ascendcorp.snspushnotification.tools.SampleMessageGenerator.Platform;
 
@@ -29,7 +30,7 @@ public class SNSMobilePush {
 
 		try {
 			SNSMobilePush sample = new SNSMobilePush(sns);
-			sample.demoAppleAppNotification("textMessage");
+			PublishResult publishResult = sample.demoAppleAppNotification("textMessage");
 //			sample.demoAndroidAppNotification();
 //			sample.demoAppleAppNotification();
 		} catch (AmazonServiceException ase) {
@@ -62,11 +63,11 @@ public class SNSMobilePush {
 		snsClientWrapper.demoNotification(Platform.GCM, registrationId, platformApplicationArn, "Hello");
 	}
 
-	public void demoAppleAppNotification(String textMessage) {
+	public PublishResult demoAppleAppNotification(String textMessage) {
 		String deviceToken = "d6bf9ba0cb43588f5a2beae1ea912a930f30fa8a4e53331eb9ec7f48deb6e9ef"; // This is 64 hex characters.
 		//String platformApplicationArn = "arn:aws:sns:ap-southeast-1:304788419564:app/APNS/wallet_ios";
 		String platformApplicationArn = "arn:aws:sns:ap-southeast-1:872767853649:app/APNS/nokia3310";
 
-		snsClientWrapper.demoNotification(Platform.APNS, deviceToken, platformApplicationArn, textMessage);
+		return snsClientWrapper.demoNotification(Platform.APNS, deviceToken, platformApplicationArn, textMessage);
 	}
 }

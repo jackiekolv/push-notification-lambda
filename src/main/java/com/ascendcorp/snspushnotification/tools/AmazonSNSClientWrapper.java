@@ -62,7 +62,7 @@ public class AmazonSNSClientWrapper {
 		return snsClient.publish(publishRequest);
 	}
 
-	public void demoNotification(Platform platform, String platformToken, String platformApplicationArn, String textMessage) {
+	public PublishResult demoNotification(Platform platform, String platformToken, String platformApplicationArn, String textMessage) {
 
 		// Create Platform Application. This corresponds to an app on a platform.
 //		CreatePlatformApplicationResult platformApplicationResult = createPlatformApplication(applicationName, platform, principal, credential);
@@ -82,6 +82,7 @@ public class AmazonSNSClientWrapper {
 		// Publish a push notification to an Endpoint.
 		PublishResult publishResult = publish(platformEndpointResult.getEndpointArn(), platform, textMessage);
 		System.out.println("Published! \n{MessageId=" + publishResult.getMessageId() + "}");
+		return publishResult;
 	}
 
 	private String getPlatformSampleMessage(Platform platform, String textMessage) {

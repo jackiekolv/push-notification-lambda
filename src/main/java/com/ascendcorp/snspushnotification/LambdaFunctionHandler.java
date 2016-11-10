@@ -9,6 +9,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sns.model.PublishResult;
 
 public class LambdaFunctionHandler implements RequestHandler<RequestObject, String> {
 
@@ -23,7 +24,7 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Stri
 					new PropertiesCredentials(
 					SNSMobilePush
 					.class
-					.getResourceAsStream("AwsCredentials.properties")));
+					.getResourceAsStream("./AwsCredentials.properties")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,9 +35,11 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Stri
 		System.out.println("Getting Started with Amazon SNS");
 		System.out.println("===========================================\n");
 
+		PublishResult publishResult = null;
+		
 		try {
 			SNSMobilePush sample = new SNSMobilePush(sns);
-			sample.demoAppleAppNotification(input.getTextMessage());
+			publishResult = sample.demoAppleAppNotification(input.getTextMessage());
 //			sample.demoAppleSandboxAppNotification();
 //			sample.demoAppleAppNotification();
 		} catch (AmazonServiceException ase) {
@@ -54,7 +57,7 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Stri
 		}
         
         // TODO: implement your handler
-        return "Yooo this is return.";
+        return publishResult.getMessageId();
     }
     
     public static void main(String[] args) {
