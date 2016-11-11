@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -19,16 +20,10 @@ public class LambdaFunctionHandler implements RequestHandler<RequestObject, Stri
     		context.getLogger().log("Input: " + input);
 
 		AmazonSNS sns = null;
-		try {
-			sns = new AmazonSNSClient(
-					new PropertiesCredentials(
-					SNSMobilePush
-					.class
-					.getResourceAsStream("./AwsCredentials.properties")));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BasicAWSCredentials credentials = new BasicAWSCredentials( "AKIAIWDLLRCIOZRGSGPA", "B9I+6BCseyjw2Zt6ydimsNF3MmyKIfbZOZbKVhKp" );
+//			sns = new AmazonSNSClient(
+//					new PropertiesCredentials(SNSMobilePush.class.getResourceAsStream("./AwsCredentials.properties")));
+		sns = new AmazonSNSClient(credentials);
 
 		sns.setEndpoint("https://sns.ap-southeast-1.amazonaws.com");
 		System.out.println("===========================================\n");
