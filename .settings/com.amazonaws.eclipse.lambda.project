@@ -1,7 +1,0 @@
-#Lambda Function Project Metadata
-#Mon Nov 28 03:05:43 ICT 2016
-lastInvokeShowLiveLog=false
-lastDeploymentFunctionName=SNSPushNotification
-lastDeploymentBucketName=lambda-function-bucket-ap-southeast-1-1478362610773
-lastDeploymentEndpoint=https\://lambda.ap-southeast-1.amazonaws.com/
-lastInvokeInput={\n  "phone"\: "+66866060131", \n  "textMessage"\: "Hello Customer\!\!\!"\n}
