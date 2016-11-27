@@ -1,7 +1,8 @@
-
+target/
+bin/
 .project
+.classpath
 .settings
-/.springBeanslog.html
 output.xml
 report.html
 log.html
