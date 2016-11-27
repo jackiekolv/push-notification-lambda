@@ -1,15 +1,7 @@
-/target/
+target/
 .project
 .classpath
 .settings
-/.springBeans
-.mvn
-/bin/
-/mvnw.cmd
-/mvnw
-*.iml
-.name
-.idea/
-log.html
+/.springBeanslog.html
 output.xml
 report.html
