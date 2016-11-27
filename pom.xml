@@ -4,7 +4,13 @@
 	<groupId>push-notification-lambda</groupId>
 	<artifactId>push-notification-lambda</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	
+	<parent>  
+	   <groupId>org.jspringbot</groupId>  
+	   <artifactId>jspringbot-base</artifactId>  
+	   <version>1.5</version> 
+	</parent>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -28,10 +34,35 @@
 					</execution>
 				</executions>
 			</plugin>
+			  
+			<plugin>    
+			   <groupId>org.jspringbot</groupId>    
+			   <artifactId>jspringbot-maven-plugin</artifactId>  
+			   <configuration>     
+			      <logLevel>TRACE</logLevel>    
+			   </configuration>    
+			   <executions>     
+			      <execution>      
+			         <phase>integration-test</phase>      
+			         <goals>       
+			            <goal>run</goal>      
+			         </goals>     
+			      </execution>    
+			   </executions>   
+			</plugin>
+			
 		</plugins>
 	</build>
 	<dependencies>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.5</version>
+		</dependency> 
+		<dependency>   
+		    <groupId>org.jspringbot</groupId>     
+		    <artifactId>jspringbot-selenium</artifactId>  
+		</dependency> 
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-lambda-java-core</artifactId>
@@ -59,4 +90,5 @@
 		<!-- </dependency> -->
 
 	</dependencies>
+	
 </project>

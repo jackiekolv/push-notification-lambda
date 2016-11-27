@@ -41,9 +41,11 @@ public class SampleMessageGenerator {
 		}
 	}
 
-	private static Map<String, String> getData() {
+	private static Map<String, String> getData(String textMessage) {
 		Map<String, String> payload = new HashMap<String, String>();
-		payload.put("message", "Hello World!");
+		payload.put("message", textMessage);
+		payload.put("badge", "1");
+		payload.put("action", "action");
 		return payload;
 	}
 
@@ -57,10 +59,10 @@ public class SampleMessageGenerator {
 		return jsonify(appleMessageMap);
 	}
 
-	public static String getSampleAndroidMessage() {
+	public static String getSampleAndroidMessage(String textMessage) {
 		Map<String, Object> androidMessageMap = new HashMap<String, Object>();
 		androidMessageMap.put("collapse_key", "Welcome");
-		androidMessageMap.put("data", getData());
+		androidMessageMap.put("data", getData(textMessage));
 		androidMessageMap.put("delay_while_idle", true);
 		androidMessageMap.put("time_to_live", 125);
 		androidMessageMap.put("dry_run", false);

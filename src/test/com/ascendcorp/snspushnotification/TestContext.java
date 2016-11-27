@@ -22,7 +22,7 @@ public class TestContext implements Context {
     private int memoryLimitInMB = 128;
     private int remainingTimeInMillis = 15000;
 
-    @Override
+    //@Override
     public String getAwsRequestId() {
         return awsRequestId;
     }
@@ -31,7 +31,7 @@ public class TestContext implements Context {
         awsRequestId = value;
     }
 
-    @Override
+    //@Override
     public ClientContext getClientContext() {
         return clientContext;
     }
@@ -40,7 +40,7 @@ public class TestContext implements Context {
         clientContext = value;
     }
 
-    @Override
+    //@Override
     public String getFunctionName() {
         return functionName;
     }
@@ -49,7 +49,7 @@ public class TestContext implements Context {
         functionName = value;
     }
 
-    @Override
+    //@Override
     public CognitoIdentity getIdentity() {
         return identity;
     }
@@ -58,7 +58,7 @@ public class TestContext implements Context {
         identity = value;
     }
 
-    @Override
+    //@Override
     public String getLogGroupName() {
         return logGroupName;
     }
@@ -67,7 +67,7 @@ public class TestContext implements Context {
         logGroupName = value;
     }
 
-    @Override
+    //@Override
     public String getLogStreamName() {
         return logStreamName;
     }
@@ -76,7 +76,7 @@ public class TestContext implements Context {
         logStreamName = value;
     }
 
-    @Override
+    //@Override
     public LambdaLogger getLogger() {
         return logger;
     }
@@ -85,7 +85,7 @@ public class TestContext implements Context {
         logger = value;
     }
 
-    @Override
+    //@Override
     public int getMemoryLimitInMB() {
         return memoryLimitInMB;
     }
@@ -94,7 +94,7 @@ public class TestContext implements Context {
         memoryLimitInMB = value;
     }
 
-    @Override
+    //@Override
     public int getRemainingTimeInMillis() {
         return remainingTimeInMillis;
     }
@@ -108,9 +108,19 @@ public class TestContext implements Context {
      */
     private static class TestLogger implements LambdaLogger {
 
-        @Override
+        //@Override
         public void log(String message) {
             System.err.println(message);
         } 
     }
+
+	public String getFunctionVersion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getInvokedFunctionArn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

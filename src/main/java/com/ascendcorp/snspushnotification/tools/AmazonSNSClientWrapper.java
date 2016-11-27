@@ -63,15 +63,7 @@ public class AmazonSNSClientWrapper {
 	}
 
 	public PublishResult demoNotification(Platform platform, String platformToken, String platformApplicationArn, String textMessage) {
-
-		// Create Platform Application. This corresponds to an app on a platform.
-//		CreatePlatformApplicationResult platformApplicationResult = createPlatformApplication(applicationName, platform, principal, credential);
-//		System.out.println(platformApplicationResult);
-
-		// The Platform Application Arn can be used to uniquely identify the Platform Application.
-//		String platformApplicationArn = platformApplicationResult.getPlatformApplicationArn();
-//		String platformApplicationArn = "arn:aws:sns:ap-southeast-1:872767853649:app/APNS_SANDBOX/Carzio";
-
+		
 		// Create an Endpoint. This corresponds to an app on a device.
 		CreatePlatformEndpointResult platformEndpointResult = createPlatformEndpoint(
 				"CustomData - Useful to store endpoint specific data",
@@ -92,7 +84,7 @@ public class AmazonSNSClientWrapper {
 		case APNS_SANDBOX:
 			return SampleMessageGenerator.getSampleAppleMessage(textMessage);
 		case GCM:
-			return SampleMessageGenerator.getSampleAndroidMessage();
+			return SampleMessageGenerator.getSampleAndroidMessage(textMessage);
 		default:
 			throw new IllegalArgumentException("Platform not supported : "
 					+ platform.name());
